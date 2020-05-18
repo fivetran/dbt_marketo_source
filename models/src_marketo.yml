@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: marketo
+    schema: marketo_v3
+    database: digital-arbor-400
+
+    tables:
+      - name: lead
+      - name: lead_describe
+      - name: activity_change_data_value
+      - name: campaign
+      - name: email_template_history
+      - name: activity_click_email
+      - name: activity_click_link
+      - name: activity_email_delivered
+      - name: activity_email_bounced
+      - name: activity_open_email
+      - name: activity_unsubscribe_email
+      - name: activity_send_email
