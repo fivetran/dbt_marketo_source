@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: marketo
-    schema: marketo_v3
-    database: digital-arbor-400
+    schema: "{{ var('schema') }}"
+    database: "{{ var('database') }}"
 
     tables:
       - name: lead
