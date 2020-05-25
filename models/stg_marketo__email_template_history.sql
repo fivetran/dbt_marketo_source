@@ -33,7 +33,14 @@ with base as (
         inferred_version = total_count_of_versions as is_most_recent_version
     from versions
 
+), surrogate_key as (
+
+    select 
+        *,
+        {{ dbt_utils.surrogate_key(['email_template_id','inferred_version'] )}} as email_template_history_id
+    from valid
+
 )
 
 select *
-from valid
+from surrogate_key

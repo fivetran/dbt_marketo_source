@@ -6,7 +6,7 @@ with base as (
 ), fields as (
 
     select
-        id,
+        id as lead_describe_id,
         restname 
     from base
 

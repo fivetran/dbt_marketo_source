@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  - name: stg_marketo__activity_change_data_value
+    columns:
+      - name: activity_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_marketo__activity_click_email
+    columns:
+      - name: activity_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_marketo__activity_email_bounced
+    columns:
+      - name: activity_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_marketo__activity_email_delivered
+    columns:
+      - name: activity_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_marketo__activity_open_email
+    columns:
+      - name: activity_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_marketo__activity_send_email
+    columns:
+      - name: activity_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_marketo__activity_unsusbscribe_email
+    columns:
+      - name: activity_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_marketo__campaigns
+    columns:
+      - name: campaign_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_marketo__email_template_history
+    columns:
+      - name: email_template_history_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_marketo__lead_describe
+    columns:
+      - name: lead_describe_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_marketo__lead
+    columns:
+      - name: lead_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_marketo__program
+    columns:
+      - name: program_id
+        tests:
+          - unique
+          - not_null

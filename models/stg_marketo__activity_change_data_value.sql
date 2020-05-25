@@ -6,7 +6,7 @@ with base as (
 ), fields as (
 
     select 
-        id,
+        id as activity_id,
         activity_date,
         lead_id,
         new_value,
