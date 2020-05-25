@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: marketo
-    schema: "{{ var('schema', marketo) }}"
-    database: "{{ var('database', target.database) }}"
+    schema: "{{ var('marketo_schema', marketo) }}"
+    database: "{{ var('marketo_database', target.database) }}"
 
     tables:
       - name: lead
