@@ -43,7 +43,7 @@ models:
           - unique
           - not_null
 
-  - name: stg_marketo__activity_unsusbscribe_email
+  - name: stg_marketo__activity_unsubscribe_email
     columns:
       - name: activity_id
         tests:
