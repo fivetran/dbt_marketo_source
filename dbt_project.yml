@@ -22,6 +22,7 @@ vars:
         lead: "{{ source('marketo','lead') }}"
         lead_describe: "{{ source('marketo','lead_describe') }}"
         campaign: "{{ source('marketo','campaign') }}"
+        program: "{{ source('marketo','program') }}"
         email_template_history: "{{ source('marketo','email_template_history') }}"
         activity_change_data_value: "{{ source('marketo','activity_change_data_value') }}"
         activity_click_email: "{{ source('marketo','activity_click_email') }}"
@@ -31,5 +32,3 @@ vars:
         activity_open_email: "{{ source('marketo','activity_open_email') }}"
         activity_unsubscribe_email: "{{ source('marketo','activity_unsubscribe_email') }}"
         activity_send_email: "{{ source('marketo','activity_send_email') }}"
-        schema: marketo
-        database: raw

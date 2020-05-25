@@ -2,14 +2,15 @@ version: 2
 
 sources:
   - name: marketo
-    schema: "{{ var('schema') }}"
-    database: "{{ var('database') }}"
+    schema: "{{ var('schema', marketo) }}"
+    database: "{{ var('database', target.database) }}"
 
     tables:
       - name: lead
       - name: lead_describe
       - name: activity_change_data_value
       - name: campaign
+      - name: program
       - name: email_template_history
       - name: activity_click_email
       - name: activity_click_link

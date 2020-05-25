@@ -1,14 +1,13 @@
 with base as (
 
     select *
-    from {{ var('lead') }}
-    -- where id = 29616
+    from {{ ref('stg_marketo__lead_adapter') }}
 
 ), fields as (
 
     select
         id as lead_id,
-        {{ dbt_utils.star(from=source('marketo','lead'), except=['id']) }}
+        {{ dbt_utils.star(from=ref('stg_marketo__lead_adapter'), except=['id']) }}
     from base
 
 )
