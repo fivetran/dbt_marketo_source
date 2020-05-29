@@ -6,11 +6,29 @@ with base as (
 ), fields as (
 
     select 
-        id as email_template_id,
-        updated_at as updated_timestamp,
         created_at as created_timestamp,
         description,
-        operational as is_operational
+        folder_folder_name as folder_name,
+        folder_id,
+        folder_type,
+        folder_value,
+        from_email,
+        from_name,
+        id as email_template_id,
+        name as email_template_name,
+        operational as is_operational,
+        program_id,
+        publish_to_msi,
+        reply_email,
+        status as email_template_status,
+        subject as email_subject,
+        template as parent_template_id,
+        text_only as is_text_only,
+        updated_at as updated_timestamp,
+        url as email_template_url,
+        version as version_type,
+        web_view as has_web_view_enabled,
+        workspace as workspace_name
     from base
 
 ), versions as (
@@ -24,7 +42,7 @@ with base as (
 ), valid as (
 
     select 
-        *,
+        * except (total_count_of_versions), 
         case
             when inferred_version = 1 then created_timestamp
             else updated_timestamp

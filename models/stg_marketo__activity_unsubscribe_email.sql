@@ -5,13 +5,23 @@ with base as (
 
 ), fields as (
 
-    select 
-        id as activity_id,
+    select 	
         activity_date as activity_timestamp,
+        activity_type_id,
         campaign_id,
         campaign_run_id,
+        client_ip_address,
         email_template_id,
-        lead_id
+        form_fields,
+        id as activity_id,
+        lead_id,
+        primary_attribute_value,
+        primary_attribute_value_id,
+        query_parameters,
+        referrer_url,
+        user_agent,
+        webform_id,
+        webpage_id
     from base
 
 ), surrogate as (

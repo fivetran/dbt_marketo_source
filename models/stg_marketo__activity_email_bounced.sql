@@ -5,13 +5,22 @@ with base as (
 
 ), fields as (
 
-    select 
-        id as activity_id,
+    select 	
         activity_date as activity_timestamp,
+        activity_type_id,
         campaign_id,
         campaign_run_id,
+        category as bounce_category,
+        choice_number,
+        details,
+        email as email_address,
         email_template_id,
-        lead_id
+        id as activity_id,
+        lead_id,
+        primary_attribute_value,
+        primary_attribute_value_id,
+        step_id,
+        subcategory as bounce_subcategory
     from base
 
 ), surrogate as (
