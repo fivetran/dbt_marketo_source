@@ -42,7 +42,7 @@ with base as (
 ), valid as (
 
     select 
-        * except (total_count_of_versions), 
+        *, 
         case
             when inferred_version = 1 then created_timestamp
             else updated_timestamp
