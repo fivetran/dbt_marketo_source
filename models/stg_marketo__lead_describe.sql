@@ -16,7 +16,17 @@ with base as (
         soapread_only as is_soap_readonly
     from base
 
+), regex as (
+
+    select 
+        *,
+        case
+            when rest_name like '%\\_\\_c%' then lower(rest_name)
+            else ltrim(lower(regexp_replace(rest_name, "[A-Z]",'_\\0')),'_')
+        end as rest_name_xf
+    from fields
+
 )
 
 select *
-from fields
+from regex
