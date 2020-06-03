@@ -569,3 +569,59 @@ sources:
             
           - name: stream
             description: Stream that the lead is a member of, if the parent program is an engagement program.
+
+      - name: activity_delete_lead
+        description: Table with deleted lead activities
+        columns:
+          - name: activity_date
+            description: The timestamp the lead was deleted.
+            
+          - name: activity_type_id
+            description: The ID of the activity type.
+            
+          - name: campaign_id
+            description: The ID of the campaign related to the activity, if applicable.
+            
+          - name: campaign
+            description: The name of the campaign related to the activity, if applicable.
+            
+          - name: id
+            description: ID of the activity.
+            
+          - name: lead_id
+            description: The ID of the lead related to the activity.
+            
+          - name: primary_attribute_value
+            description: The primary attribute of the activity.
+            
+          - name: primary_attribute_value_id
+            description: The ID of the primary attribute of the activity.
+
+      - name: activity_merge_leads
+        description: Table with merged lead activities
+        columns:
+          - name: activity_date
+            description: The timestamp the lead was deleted.
+            
+          - name: activity_type_id
+            description: The ID of the activity type.
+            
+          - name: campaign_id
+            description: The ID of the campaign related to the activity, if applicable.
+            
+          - name: id
+            description: ID of the activity.
+            
+          - name: lead_id
+            description: The ID of the lead related to the activity.
+            
+          - name: primary_attribute_value
+            description: The primary attribute of the activity.
+            
+          - name: primary_attribute_value_id
+            description: The ID of the primary attribute of the activity.
+            
+          - name: merge_ids
+            description: ID of the lead that the lead was merged into.
+
+      
