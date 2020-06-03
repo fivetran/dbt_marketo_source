@@ -21,8 +21,8 @@ with base as (
     select 
         *,
         case
-            when rest_name like '%\\_\\_c%' then lower(rest_name)
-            else ltrim(lower(regexp_replace(rest_name, "[A-Z]",'_\\0')),'_')
+            when rest_name like '%__c%' then lower(rest_name)
+            else ltrim(lower(regexp_replace(rest_name, '[A-Z]','_\\0')),'_')
         end as rest_name_xf
     from fields
 
