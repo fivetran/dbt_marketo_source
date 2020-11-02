@@ -19,3 +19,5 @@ vars:
         activity_open_email: "{{ source('marketo','activity_open_email') }}"
         activity_unsubscribe_email: "{{ source('marketo','activity_unsubscribe_email') }}"
         activity_send_email: "{{ source('marketo','activity_send_email') }}"
+        activity_delete_lead: "{{ source('marketo','activity_delete_lead') }}"
+        activity_merge_leads: "{{ source('marketo','activity_merge_leads') }}"
