@@ -1,7 +1,7 @@
 with base as (
 
     select *
-    from {{ source('marketo','activity_delete_lead') }}
+    from {{ var('activity_delete_lead') }}
 
 ), fields as (
 

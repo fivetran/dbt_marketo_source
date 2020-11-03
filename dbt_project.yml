@@ -1,9 +1,8 @@
 
 name: 'marketo_source'
-version: '0.1.0'
-
-require-dbt-version: '>=0.17.0'
+version: '0.2.0'
 config-version: 2
+require-dbt-version: [">=0.18.0", "<0.19.0"]
 
 vars:
     marketo_source:
@@ -20,3 +19,5 @@ vars:
         activity_open_email: "{{ source('marketo','activity_open_email') }}"
         activity_unsubscribe_email: "{{ source('marketo','activity_unsubscribe_email') }}"
         activity_send_email: "{{ source('marketo','activity_send_email') }}"
+        activity_delete_lead: "{{ source('marketo','activity_delete_lead') }}"
+        activity_merge_leads: "{{ source('marketo','activity_merge_leads') }}"
