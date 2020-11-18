@@ -1,7 +1,18 @@
 with base as (
 
     select *
-    from {{ var('activity_change_data_value') }}
+    from {{ ref('stg_marketo__activity_change_data_value_tmp') }}
+
+), macro as (
+
+    select 
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_marketo__activity_change_data_value_tmp')),
+                staging_columns=get_activity_change_data_value_columns()
+            )
+        }}
+    from base
 
 ), fields as (
 
@@ -20,7 +31,7 @@ with base as (
         reason as change_reason,
         request_id,
         source as change_source
-    from base
+    from macro
 
 )
 

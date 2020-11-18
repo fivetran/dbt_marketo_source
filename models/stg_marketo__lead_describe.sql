@@ -1,7 +1,18 @@
 with base as (
 
     select *
-    from {{ var('lead_describe') }}
+    from {{ ref('stg_marketo__lead_describe_tmp') }}
+
+), macro as (
+
+    select
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_marketo__lead_describe_tmp')),
+                staging_columns=get_lead_describe_columns()
+            )
+        }}
+    from base
 
 ), fields as (
 
@@ -14,7 +25,7 @@ with base as (
         restread_only as is_rest_readonly,
         soapname as soap_name,
         soapread_only as is_soap_readonly
-    from base
+    from macro
 
 ), regex as (
 
@@ -30,3 +41,5 @@ with base as (
 
 select *
 from regex
+
+
