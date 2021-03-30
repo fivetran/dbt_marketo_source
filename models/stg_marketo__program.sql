@@ -1,7 +1,18 @@
 with base as (
 
     select *
-    from {{ var('program') }}
+    from {{ ref('stg_marketo__program_tmp') }}
+
+), macro as (
+
+    select
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_marketo__program_tmp')),
+                staging_columns=get_program_columns()
+            )
+        }}
+    from base
 
 ), fields as (
 
@@ -20,9 +31,11 @@ with base as (
         updated_at as updated_timestamp,
         url,
         workspace
-    from base
+    from macro
     
 )
 
 select *
 from fields
+
+

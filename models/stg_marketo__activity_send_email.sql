@@ -1,7 +1,18 @@
 with base as (
 
     select *
-    from {{ var('activity_send_email') }}
+    from {{ ref('stg_marketo__activity_send_email_tmp') }}
+
+), macro as (
+
+    select
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_marketo__activity_send_email_tmp')),
+                staging_columns=get_activity_send_email_columns()
+            )
+        }}
+    from base
 
 ), fields as (
 
@@ -17,7 +28,7 @@ with base as (
         primary_attribute_value,
         primary_attribute_value_id,
         step_id
-    from base
+    from macro
 
 ), surrogate as (
 
@@ -30,3 +41,5 @@ with base as (
 
 select *
 from surrogate
+
+
