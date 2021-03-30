@@ -1,7 +1,18 @@
 with base as (
 
     select *
-    from {{ var('activity_delete_lead') }}
+    from {{ ref('stg_marketo__activity_delete_lead_tmp') }}
+
+), macro as (
+
+    select
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_marketo__activity_delete_lead_tmp')),
+                staging_columns=get_activity_delete_lead_columns()
+            )
+        }}
+    from base
 
 ), fields as (
 
@@ -15,7 +26,7 @@ with base as (
         lead_id,
         primary_attribute_value,
         primary_attribute_value_id
-    from base
+    from macro
 
 )
 

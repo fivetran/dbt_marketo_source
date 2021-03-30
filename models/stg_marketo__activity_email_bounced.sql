@@ -1,7 +1,18 @@
 with base as (
 
     select *
-    from {{ var('activity_email_bounced') }}
+    from {{ ref('stg_marketo__activity_email_bounced_tmp') }}
+
+), macro as (
+
+    select
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_marketo__activity_email_bounced_tmp')),
+                staging_columns=get_activity_email_bounced_columns()
+            )
+        }}
+    from base
 
 ), fields as (
 
@@ -21,7 +32,7 @@ with base as (
         primary_attribute_value_id,
         step_id,
         subcategory as bounce_subcategory
-    from base
+    from macro
 
 ), surrogate as (
 
@@ -34,3 +45,5 @@ with base as (
 
 select *
 from surrogate
+
+
