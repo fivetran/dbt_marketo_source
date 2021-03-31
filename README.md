@@ -1,6 +1,6 @@
-# Marketo (Source)
+# Marketo Source ([docs](https://fivetran-dbt-marketo.netlify.app/#!/overview))
 
-This package models Marketo data from [Fivetran's connector](https://fivetran.com/docs/applications/marketo). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1TauFmnr89QV1KV_Un7kJ-KJWOQt1fbp59a1xJLUdDDY/edit).
+This package models Marketo data from [Fivetran's connector](https://fivetran.com/docs/applications/marketo). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/marketo#schema).
 
 This package enriches your Fivetran data by doing the following:
 
@@ -36,6 +36,18 @@ vars:
     marketo_schema: your_schema_name 
 ```
 
+### Changing the Build Schema
+By default this package will build the Marketo staging models within a schema titled (<target_schema> + `_stg_marketo`) in your target database. If this is not where you would like your Marketo data to be written to, add the following configuration to your `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+...
+models:
+  marketo_source:
+    +schema: my_new_schema_name # leave blank for just the target_schema
+```
+
 ## Contributions
 
 Additional contributions to this package are very welcome! Please create issues
@@ -43,9 +55,15 @@ or open PRs against `master`. Check out
 [this post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) 
 on the best workflow for contributing to a package.
 
+## Database Support
+This package has been tested on BigQuery, Snowflake and Redshift.
+
 ## Resources:
+- Provide [feedback](https://www.surveymonkey.com/r/DQ7K7WW) on our existing dbt packages or what you'd like to see next
+- Have questions, feedback, or need help? Book a time during our office hours [using Calendly](https://calendly.com/fivetran-solutions-team/fivetran-solutions-team-office-hours) or email us at solutions@fivetran.com
 - Find all of Fivetran's pre-built dbt packages in our [dbt hub](https://hub.getdbt.com/fivetran/)
-- Learn more about Fivetran [in the Fivetran docs](https://fivetran.com/docs)
+- Learn how to orchestrate [dbt transformations with Fivetran](https://fivetran.com/docs/transformations/dbt)
+- Learn more about Fivetran overall [in our docs](https://fivetran.com/docs)
 - Check out [Fivetran's blog](https://fivetran.com/blog)
 - Learn more about dbt [in the dbt docs](https://docs.getdbt.com/docs/introduction)
 - Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
