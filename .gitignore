@@ -2,4 +2,5 @@ target/
 dbt_modules/
 logs/
 keyfile.json
+.DS_Store
 develop/ 
