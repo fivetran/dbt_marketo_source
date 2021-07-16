@@ -1,3 +1,4 @@
+[![Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![dbt Logo and Version](https://img.shields.io/static/v1?logo=dbt&label=dbt-version&message=0.20.x&color=orange)
 # Marketo Source ([docs](https://fivetran-dbt-marketo.netlify.app/#!/overview))
 
 This package models Marketo data from [Fivetran's connector](https://fivetran.com/docs/applications/marketo). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/marketo#schema).
@@ -19,7 +20,17 @@ This package contains staging models, designed to work simultaneously with our [
   * ID primary keys are prefixed with the name of the table. For example, the user table's ID column is renamed user_id.
 
 ## Installation Instructions
+`dbt_marketo_source` currently supports `dbt 0.20.x`.
+
 Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
+
+Include in your `packages.yml`
+
+```yaml
+packages:
+  - package: fivetran/marketo_source
+    version: [">=0.5.0", "<0.6.0"]
+```
 
 ## Configuration
 By default, this package will look for your Marketo data in the `marketo` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Marketo data is, add the following configuration to your `dbt_project.yml` file:
