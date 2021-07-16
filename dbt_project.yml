@@ -1,6 +1,6 @@
 
 name: 'marketo_source'
-version: '0.4.0'
+version: '0.5.0'
 config-version: 2
 require-dbt-version: ">=0.20.0"
 
