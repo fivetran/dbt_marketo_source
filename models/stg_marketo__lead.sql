@@ -20,7 +20,7 @@ with leads as (
         cast(merged_lead_id as INT64) as lead_id,
         cast(lead_id as string) as merged_into_lead_id
         {% else %}
-        cast(merged_lead_id as integer) as lead_id,
+        try_cast(merged_lead_id as integer) as lead_id,
         cast(lead_id as varchar) as merged_into_lead_id
         {% endif %}
     from merged_leads
