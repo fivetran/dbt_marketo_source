@@ -34,8 +34,8 @@ with leads as (
         unique_merges.merged_into_lead_id,
         case when unique_merges.merged_into_lead_id is not null then True else False end as is_merged
     from leads
-    left join deleted_leads using (lead_id)
-    left join unique_merges using (lead_id)
+    left join deleted_leads on leads.lead_id = deleted_leads.lead_id
+    left join unique_merges on leads.lead_id = unique_merges.lead_id
         
 )
 
