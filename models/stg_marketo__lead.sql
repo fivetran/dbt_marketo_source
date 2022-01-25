@@ -10,20 +10,21 @@ with leads as (
 
 ), merged_leads as (
 
-    select *
+    select 
+        cast(lead_id as {{ dbt_utils.type_int() }}) as lead_id,
+        -- in case there are multiple lead IDS merged at once, insert a space betweeen the comma and the following ID
+        replace( cast(merged_lead_id as {{ dbt_utils.type_string() }}), ',', ', ') as merged_lead_id
+
     from {{ ref('stg_marketo__activity_merge_leads') }}
 
 ), unique_merges as (
 
     select 
-        {% if target.type == 'bigquery' %}
-        cast(lead_id as INT64) as lead_id,
-        cast(merged_lead_id as string) as merged_into_lead_id
-        {% else %}
-        cast(lead_id as integer) as lead_id,
-        cast(merged_lead_id as varchar) as merged_into_lead_id
-        {% endif %}
+        cast(lead_id as {{ dbt_utils.type_int() }}) as lead_id,
+        {{ fivetran_utils.string_agg('distinct merged_lead_id', "', '") }} as merged_into_lead_id
+
     from merged_leads
+    group by lead_id 
 
 ), joined as (
 
