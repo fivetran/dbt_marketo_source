@@ -1,3 +1,7 @@
+# dbt_marketo_source v0.7.1
+
+## Bug Fixes
+- Explicitly cast the activity_timestamp field as `timestamp without time zone`, otherwise in Redshift this would be passed down as `timestamp with time zone` and cause date functions to fail 
 # dbt_marketo_source v0.7.0
 
 ## Bug Fixes
