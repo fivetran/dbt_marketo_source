@@ -10,7 +10,7 @@ models:
           - not_null
             
       - name: activity_timestamp
-        description: Timestamp of the actvity.
+        description: Timestamp of the activity.
             
       - name: activity_type_id
         description: ID of the activity type.
@@ -56,7 +56,7 @@ models:
           - not_null
             
       - name: activity_timestamp
-        description: Timestamp of the actvity.
+        description: Timestamp of the activity.
             
       - name: activity_type_id
         description: ID of the activity type.
