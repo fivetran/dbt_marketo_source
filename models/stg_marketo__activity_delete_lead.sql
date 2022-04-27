@@ -19,7 +19,7 @@ with base as (
     select
         id as activity_id,
         _fivetran_synced,
-        cast(activity_date as {{ dbt_utils.type_timestamp() }}) as activity_timestamp, -- ensure timestamp is passed without timezone in Redshift 
+        cast(activity_date as {{ dbt_utils.type_timestamp() }}) as activity_timestamp,
         activity_type_id,
         campaign as campaign_name,
         campaign_id,

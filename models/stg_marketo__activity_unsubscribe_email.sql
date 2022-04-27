@@ -17,7 +17,7 @@ with base as (
 ), fields as (
 
     select 	
-        cast(activity_date as {{ dbt_utils.type_timestamp() }}) as activity_timestamp, -- ensure timestamp is passed without timezone in Redshift 
+        cast(activity_date as {{ dbt_utils.type_timestamp() }}) as activity_timestamp,
         activity_type_id,
         campaign_id,
         campaign_run_id,
