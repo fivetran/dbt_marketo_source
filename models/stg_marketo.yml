@@ -77,7 +77,7 @@ models:
         description: The URL of the link clicked.
             
       - name: email_send_id
-        description: The inferred ID for the email sent.
+        description: The inferred ID for the email sent. This is created by concatenating primary_attribute_value_id, campaign_id, campaign_run_id, and lead_id. 
             
       - name: email_template_id
         description: The ID of the email's template.
@@ -136,7 +136,7 @@ models:
         description: The email address that bounced.
             
       - name: email_send_id
-        description: The inferred ID for the email sent.
+        description: The inferred ID for the email sent. This is created by concatenating primary_attribute_value_id, campaign_id, campaign_run_id, and lead_id. 
             
       - name: email_template_id
         description: The ID of the email's template.
@@ -177,7 +177,7 @@ models:
         description: The choice number of the current step that triggered the activity.
             
       - name: email_send_id
-        description: The inferred ID for the email sent.
+        description: The inferred ID for the email sent. This is created by concatenating primary_attribute_value_id, campaign_id, campaign_run_id, and lead_id. 
             
       - name: email_template_id
         description: The ID of the email's template.
@@ -221,7 +221,7 @@ models:
         description: The device that was used to open the email.
             
       - name: email_send_id
-        description: The inferred ID for the email sent.
+        description: The inferred ID for the email sent. This is created by concatenating primary_attribute_value_id, campaign_id, campaign_run_id, and lead_id. 
             
       - name: email_template_id
         description: The ID of the email's template.
@@ -271,7 +271,7 @@ models:
         description: The choice number of the current step that triggered the activity.
             
       - name: email_send_id
-        description: The inferred ID for the email sent.
+        description: The inferred ID for the email sent. This is created by concatenating primary_attribute_value_id, campaign_id, campaign_run_id, and lead_id. 
             
       - name: email_template_id
         description: The ID of the email's template.
@@ -312,7 +312,7 @@ models:
         description: The IP address of the client that unsubscribed.
             
       - name: email_send_id
-        description: The inferred ID for the email sent.
+        description: The inferred ID for the email sent. This is created by concatenating primary_attribute_value_id, campaign_id, campaign_run_id, and lead_id. 
             
       - name: email_template_id
         description: The ID of the email's template.

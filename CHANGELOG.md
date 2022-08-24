@@ -1,3 +1,9 @@
+# dbt_marketo_source v0.7.2
+## Bug Fixes
+- Updated surrogate key `email_send_id` to include `primary_attribute_value_id`. The previous key was at a campaign level grain, not an email level grain. This is pertinent in the case where there are multiple emails that are part of the same campaign.
+[#26](https://github.com/fivetran/dbt_marketo_source/pull/26)
+## Contributors
+- [sfc-gh-sugupta](https://github.com/sfc-gh-sugupta) [#25](https://github.com/fivetran/dbt_marketo_source/issues/25)
 # dbt_marketo_source v0.7.1
 
 ## Bug Fixes
