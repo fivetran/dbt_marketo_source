@@ -25,6 +25,8 @@ vars:
     activity_delete_lead: "{{ source('marketo','activity_delete_lead') }}"
     activity_merge_leads: "{{ source('marketo','activity_merge_leads') }}"
 
+  dbt_utils_dispatch_list: ['spark_utils']
+
 models:
   marketo_source:
     +materialized: table
