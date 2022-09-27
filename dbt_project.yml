@@ -5,9 +5,6 @@ require-dbt-version: [">=1.0.0", "<2.0.0"]
 
 vars:
 
-  marketo__enable_programs: false
-  marketo__enable_campaigns: false
-
   marketo_source:
     lead: "{{ source('marketo','lead') }}"
     lead_describe: "{{ source('marketo','lead_describe') }}"
