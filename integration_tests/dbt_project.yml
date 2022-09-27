@@ -20,3 +20,7 @@ vars:
         activity_send_email: "{{ ref('marketo_activity_send_email_data') }}"
         activity_delete_lead: "{{ ref('marketo_activity_delete_lead_data') }}"
         activity_merge_leads: "{{ ref('marketo_activity_merge_leads_data') }}"
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']

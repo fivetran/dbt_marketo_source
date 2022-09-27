@@ -1,3 +1,5 @@
+{{ config(enabled=var('marketo__activity_delete_lead_enabled', True)) }}
+
 with base as (
 
     select *
