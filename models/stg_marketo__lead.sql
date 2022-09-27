@@ -3,10 +3,13 @@ with leads as (
     select *
     from {{ ref('stg_marketo__lead_base') }}
 
+--If you use activity_delete_lead tags this will be included, if not it will be ignored.
+{% if var('marketo__activity_delete_lead_enabled', True) %}
 ), deleted_leads as (
 
     select *
     from {{ ref('stg_marketo__activity_delete_lead') }}
+{% endif %}
 
 ), merged_leads as (
 
@@ -30,11 +33,21 @@ with leads as (
 
     select 
         leads.*,
+
+        --If you use activity_delete_lead tags this will be included, if not it will be ignored.
+        {% if var('marketo__activity_delete_lead_enabled', True) %}
         case when deleted_leads.lead_id is not null then True else False end as is_deleted,
+        {% endif %}
+
         unique_merges.merged_into_lead_id,
         case when unique_merges.merged_into_lead_id is not null then True else False end as is_merged
     from leads
+
+    --If you use activity_delete_lead tags this will be included, if not it will be ignored.
+    {% if var('marketo__activity_delete_lead_enabled', True) %}
     left join deleted_leads on leads.lead_id = deleted_leads.lead_id
+    {% endif %}
+
     left join unique_merges on leads.lead_id = unique_merges.lead_id
         
 )
