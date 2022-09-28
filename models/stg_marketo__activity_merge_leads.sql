@@ -24,7 +24,7 @@ with base as (
         campaign_id,
         cast(lead_id as {{ dbt_utils.type_int() }}) as lead_id,
         master_updated,
-        replace( cast(trim(trim(merge_ids,']'),'[') as {{ dbt_utils.type_string() }}), ',', ', ') as merged_lead_id,
+        cast(replace(trim(trim(merge_ids,']'),'['), ',', ', ')) as {{ dbt_utils.type_string() }} as merged_lead_id,
         merge_source,
         merged_in_sales,
         primary_attribute_value,
