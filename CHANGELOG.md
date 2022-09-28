@@ -1,3 +1,10 @@
+# dbt_marketo_source v0.7.3
+PR [##](link) incorporates the following updates:
+## Features
+- 🎉 Databricks compatibility 🎉
+- Ability to disable `activity_delete_lead` model if necessary (see [README](link) for instructions). 
+- Updated structure of config default variables for enabling `campaigns` and `program` models to avoid conflicting with a user's settings. 
+
 # dbt_marketo_source v0.7.2
 ## Bug Fixes
 - Updated surrogate key `email_send_id` to include `primary_attribute_value_id`. The previous key was at a campaign level grain, not an email level grain. This is pertinent in the case where there are multiple emails that are part of the same campaign.
