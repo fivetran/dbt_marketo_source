@@ -5,7 +5,6 @@ config-version: 2
 
 vars:
     marketo_source:
-        # marketo__activity_delete_lead_enabled:  false     # Un-comment line to disable testing the activity_delete_lead table 
         marketo__enable_campaigns:   true      # Un-comment line to enable testing the campaigns table
         marketo__enable_programs:    true      # Un-comment line to enable testing the programs table
         lead: "{{ ref('marketo_lead_data') }}"
