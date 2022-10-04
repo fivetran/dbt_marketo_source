@@ -13,10 +13,10 @@
 # Marketo Source dbt Package ([docs](https://fivetran.github.io/dbt_market_source/))
 # 📣 What does this dbt package do?
 
-- Produces modeled tables that leverage Marketo data from [Fivetran's connector](https://fivetran.com/docs/applications/marketo) in the format described by [this ERD](https://fivetran.com/docs/applications/marketo#schema).
-- Adds descriptions to tables and columns that are synced using Fivetran
-- Models staging tables, which will be used in our transform package
-- Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
+- Produces staging tables that leverage Marketo data from [Fivetran's connector](https://fivetran.com/docs/applications/marketo) in the format described by [this ERD](https://fivetran.com/docs/applications/marketo#schema).
+  - Adds descriptions to tables and columns that are synced using Fivetran
+  - Models staging tables, which will be used in our transform package
+  - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your source and modeled Marketo data through the [dbt docs site](https://fivetran.github.io/dbt_marketo_source/).
 - These tables are designed to work simultaneously with our [Marketo transformation package](https://https://github.com/fivetran/dbt_marketo_source/).
 
@@ -74,6 +74,14 @@ By default this package will build the Marketo staging models within a schema ti
 models:
   marketo_source:
     +schema: my_new_schema_name # leave blank for just the target_schema
+```
+### Change the source table references
+If an individual source table has a different name than what the package expects, add the table name as it appears in your destination to the respective variable:
+> IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_marketo_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
+    
+```yml
+vars:
+    marketo_<default_source_table_name>_identifier: "your_table_name"
 ```
 </details>
 

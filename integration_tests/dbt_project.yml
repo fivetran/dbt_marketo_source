@@ -7,22 +7,17 @@ vars:
     marketo_source:
         marketo__enable_campaigns:   true      # Un-comment line to enable testing the campaigns table
         marketo__enable_programs:    true      # Un-comment line to enable testing the programs table
-        lead: "{{ ref('marketo_lead_data') }}"
-        lead_describe: "{{ ref('marketo_lead_describe_data') }}"
-        campaign: "{{ ref('marketo_campaign_data') }}"
-        program: "{{ ref('marketo_program_data') }}"
-        email_template_history: "{{ ref('marketo_email_template_history_data') }}"
-        activity_change_data_value: "{{ ref('marketo_activity_change_data_value_data') }}"
-        activity_click_email: "{{ ref('marketo_activity_click_email_data') }}"
-        activity_click_link: "{{ ref('marketo_activity_click_link_data') }}"
-        activity_email_delivered: "{{ ref('marketo_activity_email_delivered_data') }}"
-        activity_email_bounced: "{{ ref('marketo_activity_email_bounced_data') }}"
-        activity_open_email: "{{ ref('marketo_activity_open_email_data') }}"
-        activity_unsubscribe_email: "{{ ref('marketo_activity_unsubscribe_email_data') }}"
-        activity_send_email: "{{ ref('marketo_activity_send_email_data') }}"
-        activity_delete_lead: "{{ ref('marketo_activity_delete_lead_data') }}"
-        activity_merge_leads: "{{ ref('marketo_activity_merge_leads_data') }}"
-
-dispatch:
-  - macro_namespace: dbt_utils
-    search_order: ['spark_utils', 'dbt_utils']
+        marketo_lead_identifier: "lead"
+        marketo_lead_describe_identifier: "lead_describe"
+        marketo_activity_change_data_value_identifier: "activity_change_data_value"
+        marketo_campaign_identifier: "campaign"
+        marketo_program_identifier: "program"
+        marketo_email_template_history_identifier: "email_template_history"
+        marketo_activity_click_email_identifier: "activity_click_email"
+        marketo_activity_email_delivered_identifier: "activity_email_delivered"
+        marketo_activity_email_bounced_identifier: "activity_email_bounced"
+        marketo_activity_open_email_identifier: "activity_open_email"
+        marketo_activity_unsubscribe_email_identifier: "activity_unsubscribe_email"
+        marketo_activity_send_email_identifier: "activity_send_email"
+        marketo_activity_delete_lead_identifier: "activity_delete_lead"
+        marketo_activity_merge_leads_identifier: "activity_merge_leads"

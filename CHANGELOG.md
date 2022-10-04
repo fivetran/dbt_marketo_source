@@ -8,6 +8,7 @@ Some of the more complex transformation logic has been moved from the Marketo so
 - 🎉 Databricks compatibility 🎉
 - Ability to disable `activity_delete_lead` model if necessary (see [README](link) for instructions). 
 - Updated structure of config default variables for enabling `campaigns` and `program` models to avoid conflicting with a user's settings. 
+- Added `marketo_[source_table_name]_identifier` variables to allow for easier flexibility of the package to refer to source tables with different names.
 
 # dbt_marketo_source v0.7.2
 ## Bug Fixes

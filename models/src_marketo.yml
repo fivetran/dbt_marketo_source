@@ -7,6 +7,7 @@ sources:
 
     tables:
       - name: lead
+        identifier: "{{ var('marketo_lead_identifier', 'lead')}}"
         description: Table with all Marketo leads.
         columns:
           - name: id
@@ -16,6 +17,7 @@ sources:
             description: The timestamp each lead object was last updated at.
 
       - name: lead_describe
+        identifier: "{{ var('marketo_lead_describe_identifier', 'lead_describe')}}"
         description: Table with metadata about lead object columns
         columns:
           - name: data_type
@@ -43,6 +45,7 @@ sources:
             description: Whether the field is only available via the SOAP API.
 
       - name: activity_change_data_value
+        identifier: "{{ var('marketo_activity_change_data_value_identifier', 'activity_change_data_value')}}"
         description: Table with data value changes from the leads object.
         columns:
           - name: api_method_name
@@ -85,6 +88,7 @@ sources:
             description: ID of the request made.
 
       - name: campaign
+        identifier: "{{ var('marketo_campaign_identifier', 'campaign')}}"
         description: Table with all Marketo campaigns.    
         columns:
           - name: active
@@ -118,6 +122,7 @@ sources:
             description: Name of the parent workspace, if applicable.
 
       - name: program
+        identifier: "{{ var('marketo_program_identifier', 'program')}}"
         description: Table with all Marketo programs.
         columns:
           - name: channel
@@ -166,6 +171,7 @@ sources:
             description: Name of the workspace.
 
       - name: email_template_history
+        identifier: "{{ var('marketo_email_template_history_identifier', 'email_template_history')}}"
         description: Table with a history of email template versions.
         columns:
           - name: created_at
@@ -238,6 +244,7 @@ sources:
             description: Name of the workspace.
 
       - name: activity_click_email
+        identifier: "{{ var('marketo_activity_click_email_identifier', 'activity_click_email')}}"
         description: Table with email click activities.
         columns:
           - name: activity_date
@@ -286,6 +293,7 @@ sources:
             description: The Web browser user agent information obtained when the lead clicked the email link.
 
       - name: activity_email_delivered
+        identifier: "{{ var('marketo_activity_email_delivered_identifier', 'activity_email_delivered')}}"
         description: Table with email delivery activities.
         columns:
           - name: activity_date
@@ -322,6 +330,7 @@ sources:
             description: The Id of the current step in the flow.
 
       - name: activity_email_bounced
+        identifier: "{{ var('marketo_activity_email_bounced_identifier', 'activity_email_bounced')}}"
         description: Table with email bounce activities.
         columns:
           - name: activity_date
@@ -370,6 +379,7 @@ sources:
             description: The subcategory associated with bounced email.
 
       - name: activity_open_email
+        identifier: "{{ var('marketo_activity_open_email_identifier', 'activity_open_email')}}"
         description: Table with email bounce activities.
         columns:
           - name: activity_date
@@ -418,6 +428,7 @@ sources:
             description: The web browser user agent information obtained when the email was opened.
 
       - name: activity_unsubscribe_email
+        identifier: "{{ var('marketo_activity_unsubscribe_email_identifier', 'activity_unsubscribe_email')}}"
         description: Table with email unsusbscribe activities.
         columns:
           - name: activity_date
@@ -469,6 +480,7 @@ sources:
             description: The ID of the unsubscribe web form.
 
       - name: activity_send_email
+        identifier: "{{ var('marketo_activity_send_email_identifier', 'activity_send_email')}}"
         description: Table with email send activities.
         columns:
           - name: activity_date
@@ -504,73 +516,8 @@ sources:
           - name: step_id
             description: The Id of the current step in the flow.
 
-      - name: list_membership
-        description: Mapping table, linking leads to lists.
-        columns:
-          - name: id
-            description: ID of a lead.
-            
-          - name: list_id
-            description: ID of the list they are a member of.
-
-      - name: list
-        description: Table with all Marketo lists.
-        columns:
-          - name: created_at
-            description: Timestamp when the list was created.
-            
-          - name: description
-            description: Description of the list.
-            
-          - name: id
-            description: ID of the list.
-            
-          - name: name
-            description: Name of the list.
-            
-          - name: program_name
-            description: Name of the program related to the list.
-            
-          - name: updated_at
-            description: Timestamp when the list was last updated.
-            
-          - name: workspace_name
-            description: Name of the parent workspace, if applicable
-
-      - name: program_membership
-        description: Mapping table, linking leads to programs.
-        columns:
-          - name: acquired_by
-            description: Whether the lead was acquired by the parent program.
-            
-          - name: id
-            description: ID of a Lead.
-            
-          - name: is_exhausted
-            description: Whether the lead is currently exhausted in the stream, if applicable.
-            
-          - name: membership_date
-            description: Date the lead first became a member of the program.
-            
-          - name: nurture_cadence
-            description: Cadence of the parent stream if applicable.
-            
-          - name: program_id
-            description: ID of the related program.
-            
-          - name: progression_status
-            description: Program status of the lead in the parent program.
-            
-          - name: reached_success
-            description: Whether the lead is in a success-status in the parent program.
-            
-          - name: reached_success_date
-            description: Timestamp the lead reached success-status.
-            
-          - name: stream
-            description: Stream that the lead is a member of, if the parent program is an engagement program.
-
       - name: activity_delete_lead
+        identifier: "{{ var('marketo_activity_delete_lead_identifier', 'activity_delete_lead')}}"
         description: Table with deleted lead activities
         columns:
           - name: activity_date
@@ -598,6 +545,7 @@ sources:
             description: The ID of the primary attribute of the activity.
 
       - name: activity_merge_leads
+        identifier: "{{ var('marketo_activity_merge_leads_identifier', 'activity_merge_leads')}}"
         description: Table with merged lead activities
         columns:
           - name: activity_date
