@@ -6,7 +6,7 @@ require-dbt-version: [">=1.0.0", "<2.0.0"]
 models:
   marketo_source:
     +materialized: table
-    +schema: stg_marketo
+    +schema: marketo_source
     tmp:
       +materialized: view
 
