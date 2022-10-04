@@ -60,6 +60,9 @@ models:
             
       - name: activity_type_id
         description: ID of the activity type.
+
+      - name: activity_id
+        description: ID of the activity.
             
       - name: campaign_id
         description: The ID of the related campaign, if applicable.
@@ -99,6 +102,9 @@ models:
             
       - name: user_agent
         description: The Web browser user agent information obtained when the lead clicked the email link.
+      
+      - name: user_platform
+        description: The user's operating platform.
 
   - name: stg_marketo__activity_email_bounced
     columns:
@@ -455,6 +461,9 @@ models:
             
       - name: reply_email
         description: Reply-To address of the Email.
+
+      - name: total_count_of_versions
+        description: Count of versions of the email.
             
       - name: updated_timestamp
         description: Timestamp the email template was last updated.
@@ -474,6 +483,7 @@ models:
   - name: stg_marketo__lead_describe
     columns:
       - name: lead_describe_id
+        description: ID of the description.
         tests:
           - unique
           - not_null
@@ -494,7 +504,10 @@ models:
         description: Whether the field is only available via the SOAP API.
             
       - name: rest_name
-        description: Description of REST API usage attributes.
+        description: Description of REST API usage attributes in camel case.
+      
+      - name: rest_name_xf
+        description: Description of REST API usage attributes in snake case.
             
       - name: soap_name
         description: Description of SOAP API usage attributes.
@@ -507,11 +520,11 @@ models:
           - unique
           - not_null
             
-      - name: updated_at
-        description: The timestamp each lead object was last updated at.
+      - name: created_timestamp
+        description: The timestamp at which each lead object was created.
             
-      - name: created_at
-        description: The timestamp each lead object was created at.
+      - name: updated_timestamp
+        description: The timestamp at which each lead object was last updated.
 
       - name: is_deleted
         description: Whether the lead has been deleted.
@@ -520,7 +533,10 @@ models:
         description: Whether the lead has been merged into another lead.
 
       - name: merged_into_lead_id
-        description: The ID of the lead a lead was merged into.
+        description: The ID of the lead into which a lead was merged.
+      
+      - name: website
+        description: Website of the lead.
 
   - name: stg_marketo__program
     columns:
@@ -625,5 +641,14 @@ models:
         
       - name: merged_lead_id
         description: ID of the lead that the lead was merged into.
+
+      - name: master_updated
+        description: Boolean if master was updated.
+      
+      - name: merge_source
+        description: Source of the merge.
+      
+      - name: merged_in_sales
+        description: Boolean if merged in sales.
 
       
