@@ -18,7 +18,7 @@
   - Models staging tables, which will be used in our transform package
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your source and modeled Marketo data through the [dbt docs site](https://fivetran.github.io/dbt_marketo_source/).
-- These tables are designed to work simultaneously with our [Marketo transformation package](https://https://github.com/fivetran/dbt_marketo/).
+- These tables are designed to work simultaneously with our [Marketo transformation package](https://github.com/fivetran/dbt_marketo/).
 
 # 🎯 How do I use the dbt package?
 
@@ -67,7 +67,7 @@ vars:
 <br>
 
 ### Changing the Build Schema
-By default this package will build the Marketo staging models within a schema titled (<target_schema> + `_stg_marketo`) in your target database. If this is not where you would like your Marketo data to be written to, add the following configuration to your `dbt_project.yml` file:
+By default this package will build the Marketo staging models within a schema titled (<target_schema> + `_marketo_source`) in your target database. If this is not where you would like your Marketo data to be written to, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 models:
