@@ -1,13 +1,16 @@
 name: 'marketo_source'
-version: '0.7.2'
+version: '0.8.0'
 config-version: 2
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 
+models:
+  marketo_source:
+    +materialized: table
+    +schema: marketo_source
+    tmp:
+      +materialized: view
+
 vars:
-
-  marketo__enable_programs: false
-  marketo__enable_campaigns: false
-
   marketo_source:
     lead: "{{ source('marketo','lead') }}"
     lead_describe: "{{ source('marketo','lead_describe') }}"
@@ -16,7 +19,6 @@ vars:
     email_template_history: "{{ source('marketo','email_template_history') }}"
     activity_change_data_value: "{{ source('marketo','activity_change_data_value') }}"
     activity_click_email: "{{ source('marketo','activity_click_email') }}"
-    activity_click_link: "{{ source('marketo','activity_click_link') }}"
     activity_email_delivered: "{{ source('marketo','activity_email_delivered') }}"
     activity_email_bounced: "{{ source('marketo','activity_email_bounced') }}"
     activity_open_email: "{{ source('marketo','activity_open_email') }}"
@@ -24,10 +26,3 @@ vars:
     activity_send_email: "{{ source('marketo','activity_send_email') }}"
     activity_delete_lead: "{{ source('marketo','activity_delete_lead') }}"
     activity_merge_leads: "{{ source('marketo','activity_merge_leads') }}"
-
-models:
-  marketo_source:
-    +materialized: table
-    +schema: stg_marketo
-    tmp:
-      +materialized: view
