@@ -6,7 +6,7 @@ Some of the more complex transformation logic has been moved from the Marketo so
 - Parts from model `stg_marketo__lead` from `dbt_marketo_source` have been moved to a new model [`int_marketo__lead`](https://github.com/fivetran/dbt_marketo/blob/feature/create-intermediates/models/intermediate/int_marketo__lead.sql) in `dbt_marketo`.
 - The default schema for the source tables are now built within a schema titled (`<target_schema>` + `_marketo_source`) in your destination. The previous default schema was (`<target_schema>` + `_stg_marketo`). This may be overwritten if desired.
 ## Features
-- 🎉 Databricks compatibility 🎉
+- 🎉 Databricks and Postgres compatibility 🎉
 - Ability to disable `activity_delete_lead` model if necessary (see [README](link) for instructions). 
 - Updated structure of config default variables for enabling `campaigns` and `program` models to avoid conflicting with a user's settings. 
 - Added `marketo_[source_table_name]_identifier` variables to allow for easier flexibility of the package to refer to source tables with different names.
