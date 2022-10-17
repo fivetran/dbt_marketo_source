@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: marketo
     schema: "{{ var('marketo_schema', 'marketo') }}"
-    database: "{% if target.type != 'spark'%}{{ var('marketo_database', target.database) }}{% endif %}"
+    database: "{% if target.type != '!!!!!!! REPLACE 'spark' WITH 'spark','databricks' OR EQUIV !!!!!!!'%}{{ var('marketo_database', target.database) }}{% endif %}"
 
     tables:
       - name: lead

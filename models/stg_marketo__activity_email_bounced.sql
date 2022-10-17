@@ -17,7 +17,7 @@ with base as (
 ), fields as (
 
     select 	
-        cast(activity_date as {{ dbt_utils.type_timestamp() }}) as activity_timestamp,
+        cast(activity_date as {{ dbt.type_timestamp() }}) as activity_timestamp,
         activity_type_id,
         campaign_id,
         campaign_run_id,
@@ -38,7 +38,7 @@ with base as (
 
     select 
         *,
-        {{ dbt_utils.surrogate_key(['primary_attribute_value_id','campaign_id','campaign_run_id','lead_id']) }} as email_send_id
+        {{ dbt_utils.generate_surrogate_key(['primary_attribute_value_id','campaign_id','campaign_run_id','lead_id']) }} as email_send_id
     from fields
 
 )
