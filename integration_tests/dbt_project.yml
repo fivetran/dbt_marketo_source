@@ -19,3 +19,8 @@ vars:
     marketo_activity_send_email_identifier: "marketo_activity_send_email_data"
     marketo_activity_delete_lead_identifier: "marketo_activity_delete_lead_data"
     marketo_activity_merge_leads_identifier: "marketo_activity_merge_leads_data"
+
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
