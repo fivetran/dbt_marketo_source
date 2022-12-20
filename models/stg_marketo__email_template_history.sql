@@ -66,7 +66,7 @@ with base as (
 
     select 
         *,
-        {{ dbt_utils.surrogate_key(['email_template_id','inferred_version'] )}} as email_template_history_id
+        {{ dbt_utils.generate_surrogate_key(['email_template_id','inferred_version'] )}} as email_template_history_id
     from valid
 
 )
