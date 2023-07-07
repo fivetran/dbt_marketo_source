@@ -16,6 +16,8 @@
     {"name": "test_variant", "datatype": dbt.type_int()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('marketo__activity_send_email_passthrough_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}

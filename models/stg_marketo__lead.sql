@@ -9,7 +9,12 @@ with base as (
         id as lead_id,
         created_at as created_timestamp,
         updated_at as updated_timestamp,
-        {{ dbt_utils.star(from=ref('stg_marketo__lead_tmp'), except=['id', 'created_at', 'updated_at']) }}
+        email,
+        first_name,
+        last_name
+
+        {{ fivetran_utils.fill_pass_through_columns('marketo__lead_passthrough_columns') }}
+
     from base
 )
 

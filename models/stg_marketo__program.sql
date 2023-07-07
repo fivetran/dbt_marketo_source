@@ -32,7 +32,11 @@ with base as (
         type as program_type,
         updated_at as updated_timestamp,
         url,
-        workspace
+        workspace,
+        _fivetran_deleted
+
+        {{ fivetran_utils.fill_pass_through_columns('marketo__program_passthrough_columns') }}
+
     from macro
     
 )
