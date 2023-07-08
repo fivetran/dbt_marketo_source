@@ -13,8 +13,20 @@ sources:
           - name: id
             description: Unique integer id of a lead record.
             
+          - name: created_at
+            description: The timestamp each lead object was created at.
+            
           - name: updated_at
             description: The timestamp each lead object was last updated at.
+
+          - name: email
+            description: The email address of the lead.
+
+          - name: first_name
+            description: The first name of the lead.
+            
+          - name: last_name
+            description: The last name of the lead.
 
       - name: lead_describe
         identifier: "{{ var('marketo_lead_describe_identifier', 'lead_describe')}}"
@@ -109,9 +121,6 @@ sources:
           - name: program_id
             description: ID of the parent program, if applicable.
             
-          - name: program_name
-            description: Name of the parent program, if applicable.
-            
           - name: type
             description: Type of campaign, either 'batch' or 'trigger'.
             
@@ -120,6 +129,72 @@ sources:
             
           - name: workspace_name
             description: Name of the parent workspace, if applicable.
+
+          - name: computed_url
+            description: The URL of the campaign in Marketo.
+
+          - name: flow_id
+            description: The ID of the flow that the campaign is associated with.
+
+          - name: folder_id
+            description: The ID of the folder that the campaign is stored in.
+
+          - name: folder_type
+            description: The type of folder that the campaign is stored in.
+
+          - name: is_communication_limit_enabled
+            description: Whether or not the campaign has a communication limit.
+
+          - name: is_requestable
+            description: Whether or not the campaign can be requested by leads.
+
+          - name: is_system
+            description: Whether or not the campaign is a system campaign.
+
+          - name: max_members
+            description: The maximum number of members that the campaign can have.
+
+          - name: qualification_rule_type
+            description: The type of qualification rule that the campaign uses.
+
+          - name: qualification_rule_interval
+            description: The interval for the qualification rule.
+
+          - name: qualification_rule_unit
+            description: The unit for the qualification rule.
+
+          - name: recurrence_start_at
+            description: The start date and time for the recurrence.
+
+          - name: recurrence_end_at
+            description: The end date and time for the recurrence.
+
+          - name: recurrence_interval_type
+            description: The type of recurrence interval.
+
+          - name: recurrence_interval
+            description: The value of the recurrence interval.
+
+          - name: recurrence_weekday_only
+            description: Whether or not the recurrence is limited to weekdays.
+
+          - name: recurrence_day_of_month
+            description: The day of the month for the recurrence.
+
+          - name: recurrence_day_of_week
+            description: The day of the week for the recurrence.
+
+          - name: recurrence_week_of_month
+            description: The week of the month for the recurrence.
+
+          - name: smart_list_id
+            description: The ID of the smart list that the campaign is associated with.
+
+          - name: status
+            description: The status of the campaign.
+
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: program
         identifier: "{{ var('marketo_program_identifier', 'program')}}"
@@ -169,6 +244,9 @@ sources:
             
           - name: workspace
             description: Name of the workspace.
+          
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: email_template_history
         identifier: "{{ var('marketo_email_template_history_identifier', 'email_template_history')}}"
