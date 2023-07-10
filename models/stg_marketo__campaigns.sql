@@ -48,12 +48,11 @@ with base as (
         recurrence_day_of_week,
         recurrence_week_of_month,
         smart_list_id,
-        status,
-        _fivetran_deleted
+        status
     from macro
+    where not coalesce(_fivetran_deleted, false)
 
 )
 
 select *
 from fields
-where not coalesce(_fivetran_deleted, false)

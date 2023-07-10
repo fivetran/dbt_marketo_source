@@ -445,9 +445,6 @@ models:
       - name: status
         description: The status of the campaign.
 
-      - name: _fivetran_deleted
-        description: Boolean created by Fivetran to indicate whether the record has been deleted.
-
   - name: stg_marketo__email_template_history
     columns:
       - name: email_template_history_id
@@ -647,9 +644,6 @@ models:
             
       - name: workspace
         description: Name of the workspace.
-      
-      - name: _fivetran_deleted
-        description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_marketo__activity_delete_lead
     description: Table with deleted lead activities

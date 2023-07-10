@@ -32,15 +32,14 @@ with base as (
         type as program_type,
         updated_at as updated_timestamp,
         url,
-        workspace,
-        _fivetran_deleted
+        workspace
 
         {{ fivetran_utils.fill_pass_through_columns('marketo__program_passthrough_columns') }}
 
     from macro
+    where not coalesce(_fivetran_deleted, false)
     
 )
 
 select *
 from fields
-where not coalesce(_fivetran_deleted, false)
