@@ -4,7 +4,6 @@
 - We recommend using `dbt run --full-refresh` the next time you run your project since columns have changed.
 - Added passthrough column support for the following sources. (**Note**: If you are missing any columns from the prior version of this package, utilize the passthrough capability to bring these columns in. Only non-custom columns are included going forward. For more information refer to the [Passing Through Additional Columns section](https://github.com/fivetran/dbt_marketo_source#optional-step-5-additional-configurations) in the README.)
   - activity_send_email
-  - campaigns
   - lead 
   - program
 - Fields *added* to `lead`:
