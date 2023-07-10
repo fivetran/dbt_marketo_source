@@ -1,11 +1,15 @@
 # dbt_marketo_source v0.10.0
 ## 🚨 Breaking Changes 🚨:
 [PR #33](https://github.com/fivetran/dbt_marketo_source/pull/33) includes the following updates in connection with the Fivetran Marketo connector's [June 2023](https://fivetran.com/docs/applications/marketo/changelog#june2023) and [May 2023](https://fivetran.com/docs/applications/marketo/changelog#may2023) releases:
-- Added passthrough column support for the following sources. For more information refer to the [Passing Through Additional Columns section](https://github.com/fivetran/dbt_marketo_source#optional-step-5-additional-configurations) in the README.
+- Added passthrough column support for the following sources. (**Note**: If you are missing any columns from the prior version of this package, utilize the passthrough capability to bring these columns in. Only non-custom columns are included going forward. For more information refer to the [Passing Through Additional Columns section](https://github.com/fivetran/dbt_marketo_source#optional-step-5-additional-configurations) in the README.)
   - activity_send_email
   - campaigns
-  - lead
+  - lead 
   - program
+- Fields *added* to `lead`:
+  - email
+  - first_name
+  - last_name
 - Fields *added* to `program`:
   - _fivetran_deleted
 - Fields *removed* from `campaign`:
