@@ -1,4 +1,5 @@
 # dbt_marketo_source v0.10.0
+## 🚨 Breaking Changes 🚨:
 [PR #33](https://github.com/fivetran/dbt_marketo_source/pull/33) includes the following updates in connection with the Fivetran Marketo connector's [June 2023](https://fivetran.com/docs/applications/marketo/changelog#june2023) and [May 2023](https://fivetran.com/docs/applications/marketo/changelog#may2023) releases:
 - Added passthrough column support for the following sources. For more information refer to the [Passing Through Additional Columns section](https://github.com/fivetran/dbt_marketo_source#optional-step-5-additional-configurations) in the README.
   - activity_send_email
@@ -33,8 +34,8 @@
   - status
   - _fivetran_deleted
 
-[PR #31](https://github.com/fivetran/dbt_marketo_source/pull/31) includes the following updates:
  ## 🚘 Under the Hood:
+ [PR #31](https://github.com/fivetran/dbt_marketo_source/pull/31) includes the following updates:
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
 - Updated the pull request [templates](/.github).
 
