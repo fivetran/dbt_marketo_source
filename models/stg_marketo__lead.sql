@@ -24,7 +24,7 @@ with base as (
         first_name,
         last_name
 
-        {{ fivetran_utils.fill_pass_through_columns('marketo__lead_passthrough_columns') }}
+        {{ dbt_utils.star(from=ref('stg_marketo__lead_tmp'), except=['id', 'created_at', 'updated_at', 'email', 'first_name', 'last_name']) }}
 
     from macro
 )

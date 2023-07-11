@@ -25,5 +25,4 @@ vars:
     activity_delete_lead: "{{ source('marketo','activity_delete_lead') }}"
     activity_merge_leads: "{{ source('marketo','activity_merge_leads') }}"
     marketo__activity_send_email_passthrough_columns: []
-    marketo__lead_passthrough_columns: []
     marketo__program_passthrough_columns: []

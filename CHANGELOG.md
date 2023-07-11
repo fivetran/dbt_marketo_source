@@ -1,46 +1,48 @@
 # dbt_marketo_source v0.10.0
-## 🚨 Breaking Changes 🚨 (recommend --full-refresh):
+## 🚨 Breaking Changes 🚨:
 [PR #33](https://github.com/fivetran/dbt_marketo_source/pull/33) includes the following updates in connection with the Fivetran Marketo connector's [June 2023](https://fivetran.com/docs/applications/marketo/changelog#june2023) and [May 2023](https://fivetran.com/docs/applications/marketo/changelog#may2023) releases:
-- We recommend using `dbt run --full-refresh` the next time you run your project since columns have changed.
 - Added passthrough column support for the following sources. (**Note**: If you are missing any columns from the prior version of this package, utilize the passthrough capability to bring these columns in. Only non-custom columns are included going forward. For more information refer to the [Passing Through Additional Columns section](https://github.com/fivetran/dbt_marketo_source#optional-step-5-additional-configurations) in the README.)
   - activity_send_email
-  - lead 
   - program
-- Fields *added* to `lead`:
-  - email
-  - first_name
-  - last_name
-- Fields *added* to `program`:
-  - _fivetran_deleted
-- Fields *removed* from `campaign`:
-  - program_name
-- Fields *added* to `campaign`:
-  - computed_url
-  - flow_id
-  - folder_id
-  - folder_type
-  - is_communication_limit_enabled
-  - is_requestable
-  - is_system
-  - max_members
-  - qualification_rule_type
-  - qualification_rule_interval
-  - qualification_rule_unit
-  - recurrence_start_at
-  - recurrence_end_at
-  - recurrence_interval_type
-  - recurrence_interval
-  - recurrence_weekday_only
-  - recurrence_day_of_month
-  - recurrence_day_of_week
-  - recurrence_week_of_month
-  - smart_list_id
-  - status
-  - _fivetran_deleted
+- Following the connector upgrade, a number of fields were removed and added to the source tables. These added and removed fields have been accounted for appropriately within the staging models. See the full list below:
+  - Fields *added* to `lead`:
+    - email
+    - first_name
+    - last_name
+  - Fields *added* to `program`:
+    - _fivetran_deleted
+  - Fields *removed* from `campaign`:
+    - program_name
+  - Fields *added* to `campaign`:
+    - computed_url
+    - flow_id
+    - folder_id
+    - folder_type
+    - is_communication_limit_enabled
+    - is_requestable
+    - is_system
+    - max_members
+    - qualification_rule_type
+    - qualification_rule_interval
+    - qualification_rule_unit
+    - recurrence_start_at
+    - recurrence_end_at
+    - recurrence_interval_type
+    - recurrence_interval
+    - recurrence_weekday_only
+    - recurrence_day_of_month
+    - recurrence_day_of_week
+    - recurrence_week_of_month
+    - smart_list_id
+    - status
+    - _fivetran_deleted
 
 ## 🚘 Under the Hood:
 [PR #33](https://github.com/fivetran/dbt_marketo_source/pull/33) includes the following updates:
-- Update documentation and testing seed data
+- Updated the following models to filter out records where `_fivetran_deleted`is true. 
+  - `stg_marketo__campaigns`
+  - `stg_marketo__program`
+- Updated documentation and testing seed data
 [PR #31](https://github.com/fivetran/dbt_marketo_source/pull/31) includes the following updates:
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
 - Updated the pull request [templates](/.github).
