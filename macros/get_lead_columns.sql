@@ -10,8 +10,6 @@
     {"name": "updated_at", "datatype": dbt.type_timestamp()}
 ] %}
 
-{{ fivetran_utils.add_pass_through_columns(columns, var('marketo__lead_passthrough_columns')) }}
-
 {{ return(columns) }}
 
 {% endmacro %}
