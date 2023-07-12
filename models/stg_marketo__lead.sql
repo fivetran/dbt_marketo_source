@@ -13,7 +13,7 @@ with base as (
             )
         }}
         -- This will check if there are non-default columns to bring in
-        {% set default_cols = ['id', 'created_at', 'updated_at', 'email', 'first_name', 'last_name'] %}
+        {% set default_cols = ['id', 'created_at', 'updated_at', 'email', 'first_name', 'last_name', '_fivetran_synced] %}
         {% set new_cols = dbt_utils.star(from=ref('stg_marketo__lead_tmp'), except=default_cols) %}
         {% if new_cols != '/* no columns returned from star() macro */' %}
             ,{{ new_cols }} 
