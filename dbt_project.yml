@@ -1,5 +1,5 @@
 name: 'marketo_source'
-version: '0.9.0'
+version: '0.10.0'
 config-version: 2
 require-dbt-version: [">=1.3.0", "<2.0.0"]
 models:
@@ -24,3 +24,5 @@ vars:
     activity_send_email: "{{ source('marketo','activity_send_email') }}"
     activity_delete_lead: "{{ source('marketo','activity_delete_lead') }}"
     activity_merge_leads: "{{ source('marketo','activity_merge_leads') }}"
+    marketo__activity_send_email_passthrough_columns: []
+    marketo__program_passthrough_columns: []

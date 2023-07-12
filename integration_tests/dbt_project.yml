@@ -1,5 +1,5 @@
 name: 'marketo_source_integration_tests'
-version: '0.9.0'
+version: '0.10.0'
 profile: 'integration_tests'
 config-version: 2
 vars:
@@ -19,7 +19,6 @@ vars:
     marketo_activity_send_email_identifier: "marketo_activity_send_email_data"
     marketo_activity_delete_lead_identifier: "marketo_activity_delete_lead_data"
     marketo_activity_merge_leads_identifier: "marketo_activity_merge_leads_data"
-
 
 dispatch:
   - macro_namespace: dbt_utils

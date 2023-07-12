@@ -43,7 +43,7 @@ If you  are **not** using the [Marketo transformation package](https://github.co
 ```yml
 packages:
   - package: fivetran/marketo_source
-    version: [">=0.9.0", "<0.10.0"]
+    version: [">=0.10.0", "<0.11.0"]
 ```
 
 ## Step 3: Define database and schema variables
@@ -72,6 +72,20 @@ vars:
 ## (Optional) Step 5: Additional configurations
 <details><summary>Expand for details</summary>
 <br>
+
+### Passing Through Additional Columns
+This package includes all source columns defined in the macros folder. If you would like to pass through additional columns to the staging models, add the following configurations to your `dbt_project.yml` file. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables in your root `dbt_project.yml`.
+```yml
+vars:
+    marketo__activity_send_email_passthrough_columns: 
+      - name: "new_custom_field"
+        alias: "custom_field_name"
+        transform_sql:  "cast(custom_field_name as int64)"
+      - name: "a_second_field"
+        transform_sql:  "cast(a_second_field as string)"
+    # a similar pattern can be applied to the rest of the following variables.
+    marketo__program_passthrough_columns:
+```
 
 ### Changing the Build Schema
 By default this package will build the Marketo staging models within a schema titled (<target_schema> + `_marketo_source`) in your target database. If this is not where you would like your Marketo data to be written to, add the following configuration to your `dbt_project.yml` file:

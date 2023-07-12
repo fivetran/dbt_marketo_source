@@ -12,9 +12,10 @@
     {"name": "lead_id", "datatype": dbt.type_int()},
     {"name": "primary_attribute_value", "datatype": dbt.type_string()},
     {"name": "primary_attribute_value_id", "datatype": dbt.type_int()},
-    {"name": "step_id", "datatype": dbt.type_int()},
-    {"name": "test_variant", "datatype": dbt.type_int()}
+    {"name": "step_id", "datatype": dbt.type_int()}
 ] %}
+
+{{ fivetran_utils.add_pass_through_columns(columns, var('marketo__activity_send_email_passthrough_columns')) }}
 
 {{ return(columns) }}
 

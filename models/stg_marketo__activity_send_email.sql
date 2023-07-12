@@ -28,6 +28,9 @@ with base as (
         primary_attribute_value,
         primary_attribute_value_id,
         step_id
+
+        {{ fivetran_utils.fill_pass_through_columns('marketo__activity_send_email_passthrough_columns') }}
+
     from macro
 
 ), surrogate as (

@@ -25,14 +25,34 @@ with base as (
         id as campaign_id,
         name as campaign_name,
         program_id,
-        program_name,
         type as campaign_type,
         updated_at as updated_timestamp,
-        workspace_name
+        workspace_name,
+        computed_url,
+        flow_id,
+        folder_id,
+        folder_type,
+        is_communication_limit_enabled,
+        is_requestable,
+        is_system,
+        max_members,
+        qualification_rule_type,
+        qualification_rule_interval,
+        qualification_rule_unit,
+        recurrence_start_at,
+        recurrence_end_at,
+        recurrence_interval_type,
+        recurrence_interval,
+        recurrence_weekday_only,
+        recurrence_day_of_month,
+        recurrence_day_of_week,
+        recurrence_week_of_month,
+        smart_list_id,
+        status
     from macro
+    where not coalesce(_fivetran_deleted, false)
 
 )
 
 select *
 from fields
-

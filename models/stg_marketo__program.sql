@@ -33,11 +33,13 @@ with base as (
         updated_at as updated_timestamp,
         url,
         workspace
+
+        {{ fivetran_utils.fill_pass_through_columns('marketo__program_passthrough_columns') }}
+
     from macro
+    where not coalesce(_fivetran_deleted, false)
     
 )
 
 select *
 from fields
-
-
