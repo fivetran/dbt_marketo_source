@@ -1,5 +1,5 @@
 # dbt_marketo_source v0.10.1
-[PR #34](https://github.com/fivetran/dbt_marketo_source/pull/34) includes the following updates:
+[PR #35](https://github.com/fivetran/dbt_marketo_source/pull/35) includes the following updates:
 
 ## Feature Updates
 - Ensures that `stg_marketo__lead` has and documents the below columns, all [standard](https://developers.marketo.com/rest-api/lead-database/fields/list-of-standard-fields/) fields from Marketo. Previously, peristed all fields found in your `LEAD` source table but only _ensured_ that the `id`, `created_at`, `updated_at`, `email`, `first_name`, `last_name`, and `_fivetran_synced` fields were included. If your `LEAD` table contains the following fields, nothing will change for you. If any of the following default columns are missing from your `LEAD` table, `stg_marketo__lead` will create a NULL version with the proper data type:
@@ -32,7 +32,7 @@
   - `unsubscribed`
   - `email_invalid`
   - `do_not_call`
-> Note: the above fields will persist downstream into the transform `marketo__leads` model.
+> Note: the above fields will persist downstream into the [transform](https://github.com/fivetran/dbt_marketo/blob/main/models/marketo__leads.sql) `marketo__leads` model.
 
 # dbt_marketo_source v0.10.0
 ## 🚨 Breaking Changes 🚨:
