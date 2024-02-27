@@ -115,7 +115,6 @@ sources:
           - name: do_not_call
             description: Lead’s do-not-call preference (boolean)
 
-
       - name: lead_describe
         identifier: "{{ var('marketo_lead_describe_identifier', 'lead_describe')}}"
         description: Table with metadata about lead object columns
