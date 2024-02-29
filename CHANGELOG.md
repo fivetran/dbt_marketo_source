@@ -1,4 +1,4 @@
-# dbt_marketo_source v0.10.1
+# dbt_marketo_source v0.11.0
 [PR #35](https://github.com/fivetran/dbt_marketo_source/pull/35) includes the following updates:
 
 ## Feature Updates
@@ -29,10 +29,15 @@
   - `inferred_postal_code`
   - `inferred_phone_area_code`
   - `anonymous_ip`
-  - `unsubscribed`
-  - `email_invalid`
+  - `unsubscribed` -> aliased as `is_unsubscribed` (🚨 breaking change 🚨)
+  - `email_invalid` -> aliased as `is_email_invalid` (🚨 breaking change 🚨)
   - `do_not_call`
+
 > Note: the above fields will persist downstream into the [transform](https://github.com/fivetran/dbt_marketo/blob/main/models/marketo__leads.sql) `marketo__leads` model.
+
+## Under the Hood
+- Updated the maintainer PR template to resemble the most up to date format.
+- Included auto-releaser GitHub Actions workflow to automate future releases.
 
 # dbt_marketo_source v0.10.0
 ## 🚨 Breaking Changes 🚨:
