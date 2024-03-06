@@ -43,7 +43,7 @@ If you  are **not** using the [Marketo transformation package](https://github.co
 ```yml
 packages:
   - package: fivetran/marketo_source
-    version: [">=0.10.0", "<0.11.0"]
+    version: [">=0.11.0", "<0.12.0"]
 ```
 
 ## Step 3: Define database and schema variables

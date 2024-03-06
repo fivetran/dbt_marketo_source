@@ -1,3 +1,44 @@
+# dbt_marketo_source v0.11.0
+[PR #35](https://github.com/fivetran/dbt_marketo_source/pull/35) includes the following updates:
+
+## Feature Updates (includes 🚨 breaking changes 🚨)
+- Ensures that `stg_marketo__lead` has and documents the below columns, all [standard](https://developers.marketo.com/rest-api/lead-database/fields/list-of-standard-fields/) fields from Marketo. Previously, peristed all fields found in your `LEAD` source table but only _ensured_ that the `id`, `created_at`, `updated_at`, `email`, `first_name`, `last_name`, and `_fivetran_synced` fields were included. If any of the following default columns are missing from your `LEAD` table, `stg_marketo__lead` will create a NULL version with the proper data type:
+  - `phone`
+  - `main_phone`
+  - `mobile_phone`
+  - `company`
+  - `inferred_company`
+  - `address_lead`
+  - `address`
+  - `city`
+  - `state`
+  - `state_code`
+  - `country`
+  - `country_code`
+  - `postal_code`
+  - `billing_street`
+  - `billing_city`
+  - `billing_state`
+  - `billing_state_code`
+  - `billing_country`
+  - `billing_country_code`
+  - `billing_postal_code`
+  - `inferred_city`
+  - `inferred_state_region`
+  - `inferred_country`
+  - `inferred_postal_code`
+  - `inferred_phone_area_code`
+  - `anonymous_ip`
+  - `unsubscribed` -> aliased as `is_unsubscribed` (🚨 breaking change 🚨)
+  - `email_invalid` -> aliased as `is_email_invalid` (🚨 breaking change 🚨)
+  - `do_not_call`
+
+> Note: the above fields will persist downstream into the [transform](https://github.com/fivetran/dbt_marketo/blob/main/models/marketo__leads.sql) `marketo__leads` model.
+
+## Under the Hood
+- Updated the maintainer PR template to resemble the most up to date format.
+- Included auto-releaser GitHub Actions workflow to automate future releases.
+
 # dbt_marketo_source v0.10.0
 ## 🚨 Breaking Changes 🚨:
 [PR #33](https://github.com/fivetran/dbt_marketo_source/pull/33) includes the following updates in connection with the Fivetran Marketo connector's [June 2023](https://fivetran.com/docs/applications/marketo/changelog#june2023) and [May 2023](https://fivetran.com/docs/applications/marketo/changelog#may2023) releases:
