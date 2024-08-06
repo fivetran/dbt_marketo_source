@@ -4,7 +4,8 @@ sources:
   - name: marketo
     schema: "{{ var('marketo_schema', 'marketo') }}"
     database: "{% if target.type != 'spark'%}{{ var('marketo_database', target.database) }}{% endif %}"
-
+    config:
+      enabled: "{{ var('customer360__using_marketo', true) }}"
     tables:
       - name: lead
         identifier: "{{ var('marketo_lead_identifier', 'lead')}}"
@@ -188,7 +189,7 @@ sources:
 
       - name: campaign
         identifier: "{{ var('marketo_campaign_identifier', 'campaign')}}"
-        description: Table with all Marketo campaigns.    
+        description: Table with all Marketo campaigns.
         columns:
           - name: active
             description: Whether the campaign is active. Only applicable to trigger campaigns.
@@ -736,5 +737,3 @@ sources:
             
           - name: merge_ids
             description: ID of the lead that the lead was merged into.
-
-      

@@ -1,4 +1,4 @@
-{{ config(enabled=var('marketo__activity_delete_lead_enabled', True)) }}
+{{ config(enabled=var('marketo__activity_delete_lead_enabled', True) and var('customer360__using_marketo', true)) }}
 
 with base as (
 

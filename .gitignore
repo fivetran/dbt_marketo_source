@@ -5,3 +5,4 @@ keyfile.json
 .DS_Store
 develop/ 
 dbt_packages/
+integration_tests/package-lock.yml
