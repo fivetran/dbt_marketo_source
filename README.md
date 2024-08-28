@@ -14,9 +14,9 @@
 ## What does this dbt package do?
 
 - Produces staging tables that leverage Marketo data from [Fivetran's connector](https://fivetran.com/docs/applications/marketo) in the format described by [this ERD](https://fivetran.com/docs/applications/marketo#schema).
-- Adds descriptions to tables and columns that are synced using Fivetran
-- Models staging tables, which will be used in our transform package
-- Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
+  - Adds descriptions to tables and columns that are synced using Fivetran
+  - Models staging tables, which will be used in our transform package
+  - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your source and modeled Marketo data through the [dbt docs site](https://fivetran.github.io/dbt_marketo_source/).
 - These tables are designed to work simultaneously with our [Marketo transformation package](https://github.com/fivetran/dbt_marketo/).
 
