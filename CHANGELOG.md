@@ -1,3 +1,7 @@
+# dbt_marketo_source v0.12.0
+[PR #38](https://github.com/fivetran/dbt_marketo_source/pull/38) includes the following updates:
+- Added field `action_result` to the `stg_marketo__activity_send_email` model.
+
 # dbt_marketo_source v0.11.0
 [PR #35](https://github.com/fivetran/dbt_marketo_source/pull/35) includes the following updates:
 
