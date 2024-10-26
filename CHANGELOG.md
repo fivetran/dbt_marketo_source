@@ -2,7 +2,14 @@
 [PR #38](https://github.com/fivetran/dbt_marketo_source/pull/38) includes the following updates:
 
 ## Feature
-- Added the `action_result` field to the `stg_marketo__activity_send_email` model to capture the result of email actions and enable  filtering in downstream models.
+- Added the `action_result` field to the `stg_marketo__activity_send_email` model to capture the result of email actions and enable filtering in downstream models.
+
+## Documentation update
+- Update dbt docs with `action_result`
+
+## Under the hood
+- Updated seed data with `action_result`
+- Updated macro `marketo_activity_send_email_data` with `action_result`
 
 # dbt_marketo_source v0.11.0
 [PR #35](https://github.com/fivetran/dbt_marketo_source/pull/35) includes the following updates:
