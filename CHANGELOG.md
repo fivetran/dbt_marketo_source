@@ -1,4 +1,4 @@
-# dbt_marketo_source v0.12.0-a1
+# dbt_marketo_source v0.12.0
 [PR #38](https://github.com/fivetran/dbt_marketo_source/pull/38) includes the following updates:
 
 ## Feature
