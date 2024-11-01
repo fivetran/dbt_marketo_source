@@ -17,9 +17,9 @@ with base as (
 ), fields as (
 
     select 
-        action_result,
         cast(activity_date as {{ dbt.type_timestamp() }}) as activity_timestamp,
         activity_type_id,
+        action_result,
         campaign_id,
         campaign_run_id,
         choice_number,
