@@ -10,7 +10,7 @@
 
 ## Under the Hood
 - Updated seed data to include `action_result`.
-- Updated the `marketo_activity_send_email_data` macro to support `action_result`.
+- Updated the `get_activity_send_email_columns` macro to support `action_result`.
 
 # dbt_marketo_source v0.11.0
 [PR #35](https://github.com/fivetran/dbt_marketo_source/pull/35) includes the following updates:
