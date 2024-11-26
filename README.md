@@ -70,7 +70,7 @@ vars:
 ```
 
 ### (Optional) Step 5: Additional configurations
-<details><summary>Expand for details</summary>
+<details open><summary>Expand/collapse details</summary>
 <br>
 
 #### Passing Through Additional Columns
