@@ -3,7 +3,7 @@
 
 ## Breaking Change
 - Added the `action_result` field in the `stg_marketo__activity_send_email` model to capture email action outcomes, allowing for filtering in downstream models.
-  - *Note:* If you have previously added this field via the `marketo__activity_send_email_passthrough_columns` variable, remove or alias it there to prevent duplicate column errors.
+  - *Note:* If you have previously added this field via the `marketo__activity_send_email_passthrough_columns` variable, remove or alias it there to prevent duplicate column errors. See the [README](https://github.com/fivetran/dbt_marketo_source?tab=readme-ov-file#passing-through-additional-columns) for more details on working with passthrough columns.
 
 ## Documentation Update
 - Added `action_result` details to dbt documentation.
