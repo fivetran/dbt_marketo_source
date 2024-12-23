@@ -59,8 +59,8 @@ vars:
 This package takes into consideration tables that may not be synced due to slowness caused by the Marketo API. By default the `campaign`, `program`, and `activity_delete_lead` tables are enabled. If you do not sync these tables, disable the related models by adding the following to your `dbt_project.yml` file:
 ```yml
 vars:
-    marketo__enable_campaigns:   False      # Disable if Fivetran is not syncing the campaign table
-    marketo__enable_programs:    False      # Disable if Fivetran is not syncing the program table
+    marketo__enable_campaigns:   False      # Disable if Fivetran is not syncing the campaign table. Will disable the stg_marketo__program and stg_marketo__campaigns models.
+    marketo__enable_programs:    False      # Disable if Fivetran is not syncing the program table. Will disable the stg_marketo__program model.
     marketo__activity_delete_lead_enabled:  False     # Disable if Fivetran is not syncing the activity_delete_lead table
 ```
 
