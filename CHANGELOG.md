@@ -1,3 +1,10 @@
+# dbt_marketo_source v0.13.0
+[PR #40](https://github.com/fivetran/dbt_marketo_source/pull/40) includes the following updates:
+
+## Breaking Change
+- Updates the default configuration for the `marketo__enable_campaigns` and `marketo__enable_programs` variables from disabled to enabled, activating the `stg_marketo__campaigns` and `stg_marketo__program` models by default. 
+   - Quickstart dynamically manages these settings, but non-Quickstart users or those not syncing campaign or program tables should adjust the variables accordingly. Refer to the [README](https://github.com/fivetran/dbt_marketo_source?tab=readme-ov-file#step-4-enablingdisabling-models) for details.
+
 # dbt_marketo_source v0.12.0
 [PR #38](https://github.com/fivetran/dbt_marketo_source/pull/38) includes the following updates:
 
