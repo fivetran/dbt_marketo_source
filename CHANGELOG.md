@@ -1,3 +1,8 @@
+# dbt_marketo_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#41](https://github.com/fivetran/dbt_marketo_source/pull/41))
+
 # dbt_marketo_source v0.13.0
 [PR #40](https://github.com/fivetran/dbt_marketo_source/pull/40) includes the following updates:
 
