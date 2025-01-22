@@ -1,4 +1,6 @@
-<p align="center">
+# Marketo Source dbt Package ([docs](https://fivetran.github.io/dbt_market_source/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_marketo_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -10,7 +12,6 @@
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
 
-# Marketo Source dbt Package ([docs](https://fivetran.github.io/dbt_market_source/))
 ## What does this dbt package do?
 
 - Produces staging tables that leverage Marketo data from [Fivetran's connector](https://fivetran.com/docs/applications/marketo) in the format described by [this ERD](https://fivetran.com/docs/applications/marketo#schema).
